@@ -114,7 +114,7 @@ where CovidDeaths.continent is not null
 )
 select * , (people_vaccinated
 /population)*100 as vaccination_percentage
-from popvsvac
+from popvsvac 
 
 
 
