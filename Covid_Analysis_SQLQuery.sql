@@ -108,10 +108,10 @@ select * , (people_vaccinated
 /population)*100 as vaccination_percentage
 from popvsvac
 
---CreATING VIEW fOR vISUALIZATION lATER
+--Creating View For Visualization
+
 
 Create View  vaccinated_population as
-
 
 select CovidDeaths.continent,CovidDeaths.location,population,CovidDeaths.date,vaccinationCleaned.new_vaccinations,
 SUM(convert(bigint,vaccinationCleaned.people_vaccinated)) over (partition by CovidDeaths.location Order by CovidDeaths.location,
@@ -124,4 +124,5 @@ where CovidDeaths.continent is not null
 --order by 2,3
 
 
+--Checking if the view is Created and If created in which schema  it is situated
 SELECT * FROM sys.views WHERE name = 'vaccinated_population'
